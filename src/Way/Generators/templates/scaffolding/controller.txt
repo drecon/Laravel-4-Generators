@@ -38,9 +38,9 @@ class $NAME$ extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$MODEL$::create($data);
+		$result = $MODEL$::create($data);
 
-		return Redirect::route('$COLLECTION$.index');
+		return $result->toArray();
 	}
 
 	/**
@@ -86,9 +86,9 @@ class $NAME$ extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$$RESOURCE$->update($data);
+		$result = $$RESOURCE$->update($data);
 
-		return Redirect::route('$COLLECTION$.index');
+		return $result->toArray();
 	}
 
 	/**
@@ -101,7 +101,7 @@ class $NAME$ extends \BaseController {
 	{
 		$MODEL$::destroy($id);
 
-		return Redirect::route('$COLLECTION$.index');
+		return 'OK';
 	}
 
 }
